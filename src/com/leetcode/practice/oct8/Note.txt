@@ -1,0 +1,36 @@
+1. 重写方法不能抛出新的检查异常或者比被重写方法申明更加宽泛的异常。
+例如： 父类的一个方法申明了一个检查异常 IOException，
+但是在重写这个方法的时候不能抛出 Exception 异常，
+因为 Exception 是 IOException 的父类，只能抛出 IOException 的子类异常。
+
+2. 列表变为数组
+   String[] strArray = new String[list.size()];
+   list.toArray(strArray);
+   
+3. 遍历链表的3种方法：
+	3.1 for/ for each
+	3.2  转换为数组后遍历数组
+	3.3  迭代器(用担心超出数组长度)
+	
+4. 遍历Map的3种方法：
+	1. 获取keySet()后二次取值，或直接使用values遍历所有的value
+	2. 使用map.entrySet().iterator()获取迭代器
+	   Iterator<Map.Entry<String,String>> it = map.entrySet().iterator();
+	   while(it.hasNext())
+	   {
+	      Map.Entry<String,String> entry = it.next();
+	      entry.getKey();
+	      entry.getValue();
+	   }
+	3. 直接使用map.entrySet()增强遍历
+	  For(Map.entry<S,S> entry:map.entrySet())
+	  entry.getKey(); entry.getValue();
+	  
+5. 使用泛型 接受参数必须为引用类型，不能是基本数据类型
+   5.1 方法中含泛型参数
+   5.2 类中含泛型变量
+   5.3 get(List<? extends Number> data) 形参必须为Number及其子类型构成的list列表
+   5.4 get(List<? super Number> data) 形参必须为Number及其父类型构成的list列表
+   
+6. 序列化
+7. socket编程
